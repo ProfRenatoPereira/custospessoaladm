@@ -1,0 +1,57 @@
+:root {
+--primary: #1e3a8a; --primary-hover: #172554; --success: #16a34a; --danger: #dc2626;
+--background: #f1f5f9; --surface: #ffffff; --text: #0f172a; --border: #cbd5e1;
+}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',system-ui,sans-serif;}
+body{background:var(--background);color:var(--text);padding:1.5rem;}
+.container{max-width:1300px;margin:0 auto;}
+header{margin-bottom:1.5rem;border-bottom:3px solid var(--primary);padding-bottom:0.75rem;display:flex;justify-content:space-between;align-items:center;}
+header h1{color:var(--primary);font-size:1.8rem;}
+header p{font-size:0.9rem;color:#475569;}
+.grid-config{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;margin-bottom:1.5rem;}
+.card{background:var(--surface);padding:1.25rem;border-radius:8px;border:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,0.1);}
+.card h3{margin-bottom:0.75rem;color:var(--primary);font-size:1.1rem;border-bottom:1px solid var(--border);padding-bottom:0.25rem;}
+.form-group{margin-bottom:0.75rem;}
+label{display:block;font-size:0.8rem;font-weight:600;margin-bottom:0.2rem;color:#475569;}
+input,select{width:100%;padding:0.45rem;border:1px solid var(--border);border-radius:6px;font-size:0.9rem;background:#fff;}
+/* ... (estilos de botões, dashboard e tabela omitidos para brevidade) ... */
+
+/* MECANISMO DE IMPRESSÃO PROFISSIONAL CORRIGIDO */
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    body:not(.imprimindo-balanco) .container {
+        visibility: visible !important;
+    }
+    body:not(.imprimindo-balanco) .grid-config,
+    body:not(.imprimindo-balanco) .bi-container,
+    body:not(.imprimindo-balanco) .btn-print,
+    body:not(.imprimindo-balanco) .btn-delete,
+    body:not(.imprimindo-balanco) .dashboard,
+    body:not(.imprimindo-balanco) .section-title,
+    body:not(.imprimindo-balanco) .table-container {
+        display: none !important;
+    }
+    body:not(.imprimindo-balanco) header {
+        display: flex !important;
+    }
+    body:not(.imprimindo-balanco) header .actions-header {
+        display: none !important;
+    }
+    body.imprimindo-balanco .container {
+        display: none !important;
+    }
+    body.imprimindo-balanco #print-area,
+    body.imprimindo-balanco #print-area * {
+        visibility: visible !important;
+    }
+    #print-area {
+        display: block !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+}
